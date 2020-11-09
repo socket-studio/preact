@@ -1,10 +1,11 @@
 {
   "name": "@socket-studio/preact",
-  "version": "1.0.0",
+  "version": "1.0.0-canary.2",
   "description": "React tools for using Socket Studio",
   "main": "index.js",
   "exports": {
-    "import": "index.js"
+    "import": "index.js",
+    "require": "index.js"
   },
   "files": [
     "context.js",
