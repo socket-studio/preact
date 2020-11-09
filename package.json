@@ -1,0 +1,38 @@
+{
+  "name": "@socket-studio/preact",
+  "version": "1.0.0",
+  "description": "React tools for using Socket Studio",
+  "main": "index.js",
+  "exports": {
+    "import": "index.js"
+  },
+  "files": [
+    "context.js",
+    "hooks.js",
+    "index.js"
+  ],
+  "type": "module",
+  "scripts": {
+    "build:esm": "cpy src/*.js ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/socket-studio/preact.git"
+  },
+  "author": "Jason Lengstorf <jason@lengstorf.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/socket-studio/preact/issues"
+  },
+  "homepage": "https://github.com/socket-studio/preact#readme",
+  "dependencies": {
+    "@urql/preact": "^1.4.1",
+    "isomorphic-fetch": "^3.0.0",
+    "isomorphic-ws": "^4.0.1",
+    "preact": "^10.5.5",
+    "subscriptions-transport-ws": "^0.9.18"
+  },
+  "devDependencies": {
+    "cpy-cli": "^3.1.1"
+  }
+}
