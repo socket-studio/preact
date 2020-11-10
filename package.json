@@ -1,20 +1,23 @@
 {
   "name": "@socket-studio/preact",
-  "version": "1.0.0-canary.2",
+  "version": "1.0.0-canary.11",
   "description": "React tools for using Socket Studio",
+  "source": "src/index.js",
   "main": "index.js",
+  "module": "index.module.js",
+  "unpkg": "index.umd.js",
   "exports": {
-    "import": "./index.js",
+    "import": "./index.module.js",
     "require": "./index.js"
   },
   "files": [
-    "context.js",
-    "hooks.js",
-    "index.js"
+    "/*.js",
+    "/*.js.map"
   ],
   "type": "module",
   "scripts": {
-    "build:esm": "cpy src/*.js ."
+    "build": "microbundle",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -28,12 +31,14 @@
   "homepage": "https://github.com/socket-studio/preact#readme",
   "dependencies": {
     "@urql/preact": "^1.4.1",
+    "graphql": "^15.4.0",
     "isomorphic-fetch": "^3.0.0",
     "isomorphic-ws": "^4.0.1",
     "preact": "^10.5.5",
     "subscriptions-transport-ws": "^0.9.18"
   },
   "devDependencies": {
-    "cpy-cli": "^3.1.1"
+    "cpy-cli": "^3.1.1",
+    "microbundle": "^0.12.4"
   }
 }

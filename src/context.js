@@ -44,5 +44,5 @@ export function createSocketStudioClient(url) {
 }
 
 export function SocketStudioProvider({ children, client }) {
-  return <Provider value={client}>{children}</Provider>;
+  return h(Provider, { value: client }, children);
 }
