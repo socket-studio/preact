@@ -1,6 +1,6 @@
 {
   "name": "@socket-studio/preact",
-  "version": "1.0.0-canary.11",
+  "version": "1.0.0-canary.16",
   "description": "React tools for using Socket Studio",
   "source": "src/index.js",
   "main": "index.js",
@@ -34,11 +34,15 @@
     "graphql": "^15.4.0",
     "isomorphic-fetch": "^3.0.0",
     "isomorphic-ws": "^4.0.1",
-    "preact": "^10.5.5",
-    "subscriptions-transport-ws": "^0.9.18"
+    "subscriptions-transport-ws": "^0.9.18",
+    "urql": "^1.11.1"
+  },
+  "peerDependencies": {
+    "preact": "^10.5.5"
   },
   "devDependencies": {
     "cpy-cli": "^3.1.1",
-    "microbundle": "^0.12.4"
+    "microbundle": "^0.12.4",
+    "preact": "^10.5.5"
   }
 }

@@ -1,8 +1,33 @@
 import { useState } from 'preact/hooks';
-import { useSubscription as useSubscriptionUrql } from '@urql/preact';
+import { useQuery, useSubscription as useSubscriptionUrql } from '@urql/preact';
+
+export function useTwitchChannelInfo(channel) {
+  if (!channel) {
+    throw new Error('useTwitchChannelInfo requires a channel to be set');
+  }
+
+  const [result] = useQuery({
+    query: `
+      query TwitchChannelInfo ($channel: String!) {
+        channel(username: $channel) {
+          username
+          status
+          stream {
+            title
+            startTime
+          }
+        }
+      }
+    `,
+    variables: { channel },
+  });
+
+  return result;
+}
 
 export function useTwitchChat(channel) {
   const [chat, setChat] = useState([]);
+  const [events, setEvents] = useState([]);
   const [commands, setCommands] = useState([]);
   const [currentCommand, setCurrentCommand] = useState();
 
@@ -41,6 +66,11 @@ export function useTwitchChat(channel) {
             ... on TwitchChatMessage {
               html
             }
+    
+            ... on TwitchChatEvent {
+              type
+              details
+            }
 
             message
             author {
@@ -56,11 +86,13 @@ export function useTwitchChat(channel) {
       if (response.message.command) {
         setCommands([...commands, response.message]);
         setCurrentCommand(response.message);
+      } else if (response.message.type) {
+        setEvents([...events, response.message]);
       } else {
         setChat([...chat, response.message]);
       }
     },
   );
 
-  return { chat, commands, currentCommand };
+  return { chat, commands, events, currentCommand };
 }
