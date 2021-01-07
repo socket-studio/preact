@@ -3,7 +3,7 @@
 Wrap the parts of your app that need Socket Studio access in the provider:
 
 ```jsx
-import { createSocketStudioClient, SocketStudioProvider } from '@socket-studio/react';
+import { createSocketStudioClient, SocketStudioProvider } from '@socket-studio/preact';
 
 export function MyAppWrapper({ children }) {
   const url = 'https://api.streamblitz.com/graphql';
@@ -20,7 +20,7 @@ export function MyAppWrapper({ children }) {
 In any component wrapped by the provider, you can access Twitch chat data like so:
 
 ```jsx
-import { useTwitchChat } from '@socket-studio/react';
+import { useTwitchChat } from '@socket-studio/preact';
 
 export function MyChat() {
   const twitchChannel = 'jlengstorf';
